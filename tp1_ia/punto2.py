@@ -23,9 +23,9 @@ class Marco:
         for fila in range(1, self.obtener_tamanio() - 1):
             for columna in range(1, self.obtener_tamanio() - 1):
                 if fila == columna:
-                    x.cambiar_valor(fila, columna, 1)
+                    self.cambiar_valor(fila, columna, 1)
                 if columna == (self.obtener_tamanio() - fila - 1):
-                    x.cambiar_valor(fila, columna, 1)
+                    self.cambiar_valor(fila, columna, 1)
 
     def cambiar_valor(self, x, y, valor):
         self.__marco[x][y] = valor
@@ -39,9 +39,9 @@ class Marco:
 
 
 
-x = Marco(10)
+marco = Marco(10)
 print("--------------------Matriz Original--------------------")
-x.imprimir()
-x.llenar_diagonales_principales()
+marco.imprimir()
+marco.llenar_diagonales_principales()
 print("--------------------Matriz con Diagonales Principales en 1--------------------")
-x.imprimir()
+marco.imprimir()
