@@ -1,16 +1,15 @@
 class Marco:
     def __init__(self, tamanio):
-        self.tamanio = tamanio
-        self.marco = [
-            self.crear_fila_borde(tamanio) if (i == 0) or (i == tamanio - 1) 
-            else self.crear_fila_centro(tamanio) 
+        self.__marco = [
+            self.__crear_fila_borde(tamanio) if (i == 0) or (i == tamanio - 1) 
+            else self.__crear_fila_centro(tamanio) 
             for i in range(0, tamanio)
         ]
 
-    def crear_fila_borde(self, longitud):
+    def __crear_fila_borde(self, longitud):
         return [1 for i in range(0, longitud)]
 
-    def crear_fila_centro(self, longitud):
+    def __crear_fila_centro(self, longitud):
         return [
             1 if (i == 0) or (i == longitud - 1) 
             else 0 
@@ -29,13 +28,13 @@ class Marco:
                     x.cambiar_valor(fila, columna, 1)
 
     def cambiar_valor(self, x, y, valor):
-        self.marco[x][y] = valor
+        self.__marco[x][y] = valor
 
     def obtener_tamanio(self):
-        return self.tamanio
+        return len(self.__marco)
 
     def imprimir(self):
-        for i in self.marco:
+        for i in self.__marco:
             print(i)
 
 
