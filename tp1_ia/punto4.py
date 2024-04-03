@@ -1,30 +1,38 @@
-def leer_precios(cantidad):
-    precios = []
-    for i in range(0, cantidad):
-        precio = float(input("Ingrese el precio del artículo " + str(i + 1) + ":"))
-        precios.append(precio)
-    return precios
+ventas = [[0 for _ in range(5)] for _ in range(4)]
 
-def leer_ventas_sucursal(cantidad):
-    ventas = []
-    for i in range(0, cantidad):
-        venta = float(input("Ingrese la cantidad vendida del artículo " + str(i + 1) + ":"))
-        ventas.append(venta)
-    return ventas
+precios = [0 for _ in range(5)]
+
+for i in range(5):
+    precios[i] = float(input(f"Introduce el precio del artículo {i+1}:"))
+
+for i in range(4):
+    for j in range(5):
+        ventas[i][j] = float(
+            input(
+                f"Introduce la cantidad vendida del artículo {j + 1} en la sucursal {i + 1}: "
+            )
+        )
+
+ventas_tot_articulos = [sum(ventas[i][j] for i in range(4)) for j in range(5)]
+
+art_vendidos_sucursal2 = sum(ventas[1])
+
+cant_art3_sucursal1 = ventas[0][2]
+
+recaudacion_total_sucursales = [sum(ventas[i][j] * precios[j] for j in range(5)) for i in range(4)]
+
+recaudacion_total_empresa = sum(recaudacion_total_sucursales)
+
+sucursal_de_mayor_recaudacion = recaudacion_total_sucursales.index(max(recaudacion_total_sucursales)) + 1
+
+print(f"Precios:\n{precios}")
+print(f"Ventas por sucursal:\n{ventas}")
+print(f"Totales vendidos por artículo:\n{ventas_tot_articulos}")
+print(f"Cant. artículos vendidos sucursal 2:\n{art_vendidos_sucursal2}")
+print(f"Cant. vendida del artículo 3 en la sucursal 1:\n{cant_art3_sucursal1}")
+print(f"Recaudación total de cada sucursal:\n{recaudacion_total_sucursales}")
+print(f"Recaudación total de la empresa:\n{recaudacion_total_empresa}")
+print(f"La sucursal de mayor recaudación es la sucursal N°{sucursal_de_mayor_recaudacion}.")
 
 
-precios = leer_precios(5)
-print("Precios:")
-print(precios)
 
-ventas_sucursales = []
-
-for i in range(0, 4):
-    print("Sucursal " + str(i + 1) + ":")
-    ventas_sucursal = leer_ventas_sucursal(5)
-    ventas_sucursales.append(ventas_sucursal)
-
-print("Ventas por sucursal:")
-for i in range(0, 4):
-    print("Sucursal " + str(i + 1) + ":")
-    print(ventas_sucursales[i])
