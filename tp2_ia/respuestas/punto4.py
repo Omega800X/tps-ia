@@ -1,6 +1,8 @@
 '''
 Punto a):
-
+La técnica que podría utilizarse para determinar la menor cantidad de colores necesarios
+para resolver el problema es la propagación de restricciones ya que permite restringir
+los dominios para las variables y se puede ejecutar como un proceso previo a la búsqueda.
 '''
 
 from simpleai.search import CspProblem, backtrack
