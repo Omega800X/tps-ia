@@ -6,7 +6,8 @@ Created on Mon Apr  8 18:16:33 2024
 """
 
 '''
-El algoritmo implementado corresponde a una búsqueda local.
+El algoritmo implementado corresponde a una búsqueda local
+first-choice hill climbing.
 '''
 
 import random
@@ -29,7 +30,7 @@ def evaluar_solucion(solucion):
         return abs((send + more) - money) #completar código  # Costo es la diferencia entre la suma y MONEY
 
 '''
-La función generar tiene por objetivo generar una asignación de valores 
+La función generar tiene por objetivo generar una asignación de valores de las variables
 a partir de otra asignación existente.
 Para ello: 
 -realiza una copia de la asignación pasada por parámetro y la guarda en ejerL
@@ -57,14 +58,13 @@ def busqueda():
         if costo_ejerL == 0:
             print("Solución encontrada:")
             return ejerL
-            break
 
         if costo_ejerL < costo_actual:
             solucion_actual = ejerL
             costo_actual = costo_ejerL
             print("ejerL mejor")
-        #else:
-         #   print("Solución no optima")
+        else:
+            print("Solución no optima")
             
         iteracion += 1
         if iteracion % 10000 == 0:
@@ -74,3 +74,10 @@ def busqueda():
 
 solucion = busqueda()
 print(solucion)
+
+'''
+Los problemas que se presentan con el algoritmo de búsqueda son:
+- Una instrucción break que nunca se ejecutará porque se encuentra precedidad por un return.
+- Un else y su instrucción que se encuentran comentados.
+- Un comentario con una instrucción print que sobra.
+'''
