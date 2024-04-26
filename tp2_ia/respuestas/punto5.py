@@ -12,6 +12,13 @@ class Estado(object):
 		# Explicar el objetivo de "es_valido"
 		#
 
+		'''
+		El objetivo del método es comprobar que el estado es un estado legal.
+		Para ello comprueba que la cantidad de misioneros y caníbales en cada
+		orilla se encuentre entre 0 y 3 y que la cantidad de caníbales no
+		supere a la cantidad de misioneros en la orilla.
+		'''
+
 		for gente in self.estado:
 			for persona in gente:
 				if persona > 3 or persona < 0:
@@ -27,6 +34,13 @@ class Estado(object):
 		#
 		# Explicar el objetivo de "viaja"
 		#
+
+		'''
+		El objetivo de viaja es trasladar hasta un máximo de 2 personas de una
+		orilla a la otra del río. Para ello modifica el arreglo que contiene el estado,
+		restando cantidades de una orilla y sumando esas cantidades a la otra orilla.
+		'''
+
 
 		estado = copy.deepcopy(self.estado)
 		canoa = self.canoa
@@ -58,18 +72,24 @@ def main():
 	#
 	# Completar con el código correspondiente
 	#
-	inicio = 
+	inicio = Estado([[3, 3], [0, 0]], 0)
 	# a donde queremos llegar
 	#
 	# Completar con el código correspondiente
 	#
-	final = 
+	final = Estado([[0, 0], [3, 3]], 1)
 
 	# los viaje posibles ( legales )
 	#
 	# Completar con el código correspondiente
 	#	
-	viajes = 
+	viajes = [
+		(1, 0),
+		(0, 1),
+		(1, 1),
+		(2, 0),
+		(0, 2)
+	]
 
 	# los viajes que probamos desde cada estado
 	viajes_posibles = list(viajes)
