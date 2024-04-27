@@ -7,7 +7,11 @@ Created on Mon Apr  8 18:16:33 2024
 
 '''
 El algoritmo implementado corresponde a una búsqueda local
-first-choice hill climbing.
+first-choice hill climbing. Ya que no importa el camino tomado
+para llegar a la solución, genera un estado siguiente y se fija
+si la valoración del estado generado es mejor que la actual y en
+caso positivo pasa el estado generado a ser el estado actual sin
+importar si el estado generado es el estado siguiente con mejor valoración.
 '''
 
 import random
@@ -63,12 +67,11 @@ def busqueda():
             solucion_actual = ejerL
             costo_actual = costo_ejerL
             print("ejerL mejor")
-        else:
-            print("Solución no optima")
             
         iteracion += 1
         if iteracion % 10000 == 0:
             print(f"Iteración {iteracion}: Costo actual {costo_actual}")
+            return None
 
     
 
@@ -77,7 +80,12 @@ print(solucion)
 
 '''
 Los problemas que se presentan con el algoritmo de búsqueda son:
-- Una instrucción break que nunca se ejecutará porque se encuentra precedidad por un return.
-- Un else y su instrucción que se encuentran comentados.
-- Un comentario con una instrucción print que sobra.
+- Puede no encontrar la configuración objetivo, quedándose en un máximo local.
+- En caso de quedarse en un máximo local, el algoritmo no cuenta con una condición de corte,
+  por lo que quedará en un bucle infinito.
+- En caso de no encontrar una solución, el algoritmo no contempla qué debe retornar la función.
+
+Para solucionar el bucle infinito, se puede seleccionar un límite de iteraciones para el algoritmo
+y en caso de que este llegue a ese límite romper el bucle y retornar None para indicar que no se
+encontró la solución óptima.
 '''
