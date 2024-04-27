@@ -1,8 +1,13 @@
 '''
 Punto a):
-La técnica que podría utilizarse para determinar la menor cantidad de colores necesarios
-para resolver el problema es la propagación de restricciones ya que permite restringir
-los dominios para las variables y se puede ejecutar como un proceso previo a la búsqueda.
+Para determinar la menor cantidad de colores necesarios para resolver el problema se podría:
+- Empezar con un dominio de colores que sea igual en cantidad a las cantidades de regiones a colorear,
+  intentar resolver el problema, si se pudo resolver restar un color al dominio e intentar nuevamente
+  hasta que el problema no pueda resolverse. Cuando no se pueda resolver el problema volver al dominio
+  de la iteración anterior para obtener la mínima cantidad de colores.
+- Empezar con un dominio de colores que solo tenga un color, intentar resolver el problema, si no se pudo
+  resolver el problema añadir un color al dominio e intentar nuevamente hasta resolver el problema. La 
+  primera vez que se logre resolver el problema se tendrá la cantidad mínima de colores.
 '''
 
 from simpleai.search import CspProblem, backtrack
