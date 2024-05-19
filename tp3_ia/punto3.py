@@ -49,5 +49,5 @@ print("Accuracy:", metrics.accuracy_score(y_test, y_pred))
 # (c) A partir de la métrica obtenida: ¿Qué podemos decir del modelo creado?
 print(10 * "-", "PUNTO C", 10 * "-")
 """
-Podemos decir del modelo creado que... ¿presenta overfitting?
+Podemos decir del modelo creado que... presenta una alta varianza y un bajo sesgo.¿presenta overfitting?
 """
