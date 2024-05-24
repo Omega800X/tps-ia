@@ -56,4 +56,6 @@ Por ejemplo con random_state=1 la exactitud del modelo fue de
 correctas.
 Con esto podemos decir que el modelo es bueno para predecir si un automóvil
 es aceptable o no a partir de las características dadas.
+Además como no se hicieron suposiciones y el clasificador es árbol de decisión,
+el modelo presenta una alta varianza y un bajo sesgo.
 """
