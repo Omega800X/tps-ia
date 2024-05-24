@@ -45,8 +45,11 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_
 model = LinearRegression()
 model.fit(x_train, y_train)
 
-plt.scatter(x, y, color='blue')
-plt.plot(x, model.predict(x), color='red')
+plt.scatter(x, y, color="blue")
+plt.plot(x, model.predict(x), color="red")
+
+
+sns.lmplot(x="Word count", y="# Shares", data=df_filtrado)
 plt.show()
 
 # (e) Utilizar el modelo generado para predecir la cantidad de veces que serán compartidos artículos de
@@ -64,5 +67,5 @@ print("Coeficientes: \n", model.coef_)
 
 y_pred = model.predict(x_test)
 
-print(f'Error Cuadrático Medio: {mean_squared_error(y_test, y_pred)}')
-print(f'Coeficiente de Determinación (R2): {r2_score(y_test, y_pred)}')
+print(f"Error Cuadrático Medio: {mean_squared_error(y_test, y_pred)}")
+print(f"Coeficiente de Determinación (R2): {r2_score(y_test, y_pred)}")
