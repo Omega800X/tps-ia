@@ -20,9 +20,9 @@ col_names = [
 dataset = pd.read_csv("car.csv", header=0, names=col_names)
 print(dataset.head(243))
 
-dataset["class"] = dataset["class"].apply(lambda x: 1 if x == "acc" else 0)
+dataset["class"] = dataset["class"].apply(lambda x: 0 if x == "unacc" else 1)
 
-print(dataset.head(243))
+print(dataset.tail())
 
 features_cols = ["buying", "maintenance", "doors", "persons", "luggage_boot", "safety"]
 
@@ -34,9 +34,11 @@ for col in col_names:
 x = dataset[features_cols]
 y = dataset["class"]
 
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=4)
+x_train, x_test, y_train, y_test = train_test_split(
+    x, y, test_size=0.3, random_state=444
+)
 
-model = DecisionTreeClassifier(random_state=4)
+model = DecisionTreeClassifier(random_state=1)
 model.fit(x_train, y_train)
 y_pred = model.predict(x_test)
 
@@ -49,5 +51,11 @@ print("Accuracy:", metrics.accuracy_score(y_test, y_pred))
 # (c) A partir de la métrica obtenida: ¿Qué podemos decir del modelo creado?
 print(10 * "-", "PUNTO C", 10 * "-")
 """
-Podemos decir del modelo creado que... presenta una alta varianza y un bajo sesgo.¿presenta overfitting?
+Probando con diferentes valores de random_state tanto para el clasificador
+como para el split se obtuvieron valores de accuracy muy cercanos al 1.0.
+Por ejemplo con random_state=1 la exactitud del modelo fue de
+0.9826589595375722 por lo que el modelo realizó ~98% de predicciones
+correctas.
+Con esto podemos decir que el modelo es bueno para predecir si un automóvil
+es aceptable o no a partir de las características dadas.
 """
