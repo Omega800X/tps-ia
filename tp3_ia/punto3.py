@@ -34,9 +34,7 @@ for col in col_names:
 x = dataset[features_cols]
 y = dataset["class"]
 
-x_train, x_test, y_train, y_test = train_test_split(
-    x, y, test_size=0.3, random_state=444
-)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
 
 model = DecisionTreeClassifier(random_state=1)
 model.fit(x_train, y_train)
