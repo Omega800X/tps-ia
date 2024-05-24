@@ -47,9 +47,6 @@ model.fit(x_train, y_train)
 
 plt.scatter(x, y, color="blue")
 plt.plot(x, model.predict(x), color="red")
-
-
-sns.lmplot(x="Word count", y="# Shares", data=df_filtrado)
 plt.show()
 
 # (e) Utilizar el modelo generado para predecir la cantidad de veces que serán compartidos artículos de
