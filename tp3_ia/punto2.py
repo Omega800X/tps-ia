@@ -40,6 +40,10 @@ print(promedio)
 # g) Convierte la variable objetivo a una variable binaria usando Label Encoding.
 print(10 * "-", "PUNTO G", 10 * "-")
 
+df["class"] = df["class"].apply(lambda x: "unacc" if x == "unacc" else "acc")
+
+print(df.tail())
+
 print(10 * "-", "TARGET BEFORE", 10 * "-")
 print(df["class"])
 le = LabelEncoder()
