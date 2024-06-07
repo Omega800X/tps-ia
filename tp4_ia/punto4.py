@@ -11,12 +11,10 @@ import matplotlib.pyplot as plt
 # a) Realizar gráficos que permitan visualizar la relación entre las variables del dataset.
 X, _ = load_wine(return_X_y=True, as_frame=True)
 
-""" sns.pairplot(X)
+sns.pairplot(X)
 plt.show()
 sns.heatmap(X.corr(), annot=True)
-plt.show() """
-
-
+plt.show()
 
 
 # b) Obtener la curva Elbow para determinar la cantidad de clusters. Adjuntar imagen.
